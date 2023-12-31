@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+    background-color:  #1C1C1C;
+    color: #FFFFFF;
+    font-family: Karla, sans-serif;
+}
+
+#main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 700px;
+    background-color: #1F2937;
+    margin: 60px auto;
+    padding: 50px 60px 90px 60px;
+}
+
+#main-content {
+    border-bottom: 1px solid #2F3E53;
+    padding: 80px 0px 50px 0px;
+}
+
+span {
+    color: #4ADF86;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h3 {
+    font-weight: lighter;
+    color: #D5D4D8;
+    font-size: 20px;
+}
+
+button {
+    color: white;
+    background-color: #10B981;
+    border: none;
+    max-width: 200px;
+    padding: 13px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 40px;
+}
+
+input {
+    padding: 13px;
+    background-color: #10B981;
+    border: none;
+    color: white;
+    border-radius: 5px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+button:hover {
+    color: #003566;
+}
+
+#pass-results-all {
+    display: flex;
+    margin: 40px 0px;
+}
+
+#pass-results-1 {
+    color: #55F991;
+    margin-right: 20px
+}
+
+#pass-results-2 {
+    color: #55F991;
+    margin-left: 12px
+}
+
+#pass-1 {
+    text-align: center;
+    width: 200px;
+    background-color: #273549;
+    padding: 20px 40px;
+    border-radius: 5px; 
+}
+
+#pass-2 {
+    text-align: center;
+    width: 200px;
+    background-color: #273549;
+    padding: 20px 40px;
+    border-radius: 5px;   
+}
+
+#error-message {
+    color: red;
+}
