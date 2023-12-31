@@ -11,6 +11,7 @@ let isSymbols = true
 function generatePass() {
     let characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9","~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?",
 "/"];
+    let charNoNumbers = []
     let password1 = ""
     let password2 = ""
     if (passLengthEl.value >= 8 && passLengthEl.value <= 24) {
@@ -24,29 +25,50 @@ function generatePass() {
             pass2El.textContent = password2
             console.log("All")   
             } else if (isNumbers && !isSymbols) {
+                let password1 = ""
+                let password2 = ""
                 for (let i = 62; i < characters.length; i++) {
                     characters.pop()
+                }
+                console.log(passLengthEl.value)
+                for (let j = 0; j < passLengthEl.value; j++) {
                     randomNumber1 = Math.floor(Math.random() * characters.length)
                     randomNumber2 = Math.floor(Math.random() * characters.length)
                     password1 += characters[randomNumber1]
                     password2 += characters[randomNumber2]
                     pass1El.textContent = password1
-                    pass2El.textContent = password2   
+                    pass2El.textContent = password2
                 }
-            errorMessageEl.textContent = characters
             } else if (!isNumbers && isSymbols) {
-                for (let i = 50; i < 120 - characters.length; i++) {
-                    characters[i].pop()
+                let password1 = ""
+                let password2 = ""
+                for (let i = 0; i < characters.length; i++) {
+                    if (i >= 0 &&  i < 52 || i >= 62 ) {
+                      charNoNumbers.push(characters[i])  
+                    } 
+                }
+                for (j = 0; j < passLengthEl.value; j++) {
+                    randomNumber1 = Math.floor(Math.random() * charNoNumbers.length)
+                    randomNumber2 = Math.floor(Math.random() * charNoNumbers.length)
+                    password1 += charNoNumbers[randomNumber1]
+                    password2 += charNoNumbers[randomNumber2]
+                    pass1El.textContent = password1
+                    pass2El.textContent = password2
+                }
+            } else {
+                let password1 = ""
+                let password2 = ""
+                for (let i = 52; i < characters.length; i++) {
+                    characters.pop()
+                } 
+                for (j = 0; j < passLengthEl.value; j++) {
                     randomNumber1 = Math.floor(Math.random() * characters.length)
                     randomNumber2 = Math.floor(Math.random() * characters.length)
                     password1 += characters[randomNumber1]
                     password2 += characters[randomNumber2]
                     pass1El.textContent = password1
-                    pass2El.textContent = password2   
+                    pass2El.textContent = password2
                 }
-                errorMessageEl.textContent = characters
-            } else {
-                console.log("Nothing")
             }
         }
     }
